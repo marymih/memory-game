@@ -6,6 +6,12 @@ import GameOver from './components/GameOver';
 import ErrorCard from './components/ErrorCard';
 
 export default function App() {
+  const initialFormData = {
+    category: 'animals-and-nature',
+    number: 10,
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
   const [isGameOn, setIsGameOn] = useState(false);
   const [emojisData, setEmojisData] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
@@ -31,12 +37,18 @@ export default function App() {
     }
   }, [matchedCards]);
 
+  function handleFormChange(e) {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
   async function startGame(e) {
     e.preventDefault();
     try {
-      throw new Error('Oops! Something went wrong. Please try again later.');
       const response = await fetch(
-        'https://emojihub.yurace.pro/api/all/category/animals-and-nature'
+        `https://emojihub.yurace.pro/api/all/category/${formData.category}`
       );
 
       if (!response.ok) {
@@ -69,7 +81,7 @@ export default function App() {
   function getRandomIndices(data) {
     const randomIndicesArray = [];
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < formData.number; i++) {
       const randomNum = Math.floor(Math.random() * data.length);
       if (!randomIndicesArray.includes(randomNum)) {
         randomIndicesArray.push(randomNum);
@@ -123,7 +135,9 @@ export default function App() {
   return (
     <main>
       <h1>Memory</h1>
-      {!isGameOn && !isError && <Form handleSubmit={startGame} />}
+      {!isGameOn && !isError && (
+        <Form handleSubmit={startGame} handleChange={handleFormChange} />
+      )}
       {isGameOn && !areAllCardsMatched && (
         <AssistiveTechInfo
           emojisData={emojisData}
@@ -139,7 +153,7 @@ export default function App() {
           matchedCards={matchedCards}
         />
       )}
-      {isError && <ErrorCard handleClick={resetError}/>}
+      {isError && <ErrorCard handleClick={resetError} />}
     </main>
   );
 }
