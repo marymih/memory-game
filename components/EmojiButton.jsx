@@ -13,7 +13,7 @@ export default function EmojiButton({
       : '?';
 
   const btnStyle = matchedCardEntry
-    ? 'btn--emoji__back----matched'
+    ? 'btn--emoji__back--matched'
     : selectedCardEntry
     ? 'btn--emoji__back--selected'
     : 'btn--emoji__front';
