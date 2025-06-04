@@ -2,6 +2,9 @@
 
 React memory game developing using [The Scrimba tutorial](https://scrimba.com/memory-game-in-react-c0a3odsk39).
 
+## Deployment Link
+[Memory Game](https://marymih.github.io/memory-game/)
+
 ## Features
 - **Customizing:** Players can customize the game by choosing the number of cards and the card's category.
 - **Accessibility:** The game is designed to be accessible, with keyboard navigation and screen reader support.
@@ -30,10 +33,10 @@ Follow these steps to run the application locally:
   ```
 ## Technologies Used
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![JavaScript](https://img.shields.io/badge/JavaScript-20232A?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
-![CSS](https://img.shields.io/badge/CSS-20232A?style=for-the-badge&logo=css3&logoColor=1572B6)
-![Vite](https://img.shields.io/badge/Vite-20232A?style=for-the-badge&logo=vite&logoColor=646CFF)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=20232A)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=ffffff)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)
 
 ## Future Improvements
 - **Timer:** Implement a timer to track how long it takes to complete the game.
